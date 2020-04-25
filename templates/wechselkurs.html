@@ -1,0 +1,57 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="four columns">
+
+        <form method="get">
+            <label for="waehrung1" name="waehrung1">Währung 1</label>
+            <input id="waehrung1" name="waehrung1" type="text" value="{{waehrung1}}">
+            <label for="waehrung2" name="waehrung2">Währung 2</label>
+            <input id="waehrung2" name="waehrung2" type="text" value="{{waehrung2}}">
+            <label for="kurs" name="kurs">Wechselkurs</label>
+            <input id="kurs" name="kurs" type="text" value="{{kurs}}">
+            <br>
+            <input type="submit" value="Berechnen">
+        </form>
+    </div>
+    <div class="four columns">
+        <table class="u-full-width">
+            <thead>
+            <tr>
+                <th>{{waehrung1}}</th>
+                <th>{{waehrung2}}</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for i in tabelle %}
+            <tr>
+                <td>{{ i[0] }}</td>
+                <td>{{ i[1] }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="four columns">
+        <table class="u-full-width">
+            <thead>
+            <tr>
+                <th>{{waehrung2}}</th>
+                <th>{{waehrung1}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for wert in tabelle2 %}
+            <tr>
+                <td>{{wert[0]}}</td>
+                <td>{{wert[1]}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+
+        {% endblock %}
